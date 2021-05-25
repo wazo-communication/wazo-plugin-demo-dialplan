@@ -1,0 +1,29 @@
+#!/bin/sh
+# Copyright 2021 Wazo Team (see the AUTHORS file)
+# SPDX-License-Identifier: GPLv3
+
+case "$1" in
+    build)
+    ;;
+
+    package)
+        mkdir -p ${pkgdir}/etc/asterisk/extensions_extra.d
+        cp helloworld.conf ${pkgdir}/etc/asterisk/extensions_extra.d/
+    ;;
+
+    install)
+        asterisk -x 'dialplan reload'
+    ;;
+
+    uninstall)
+        asterisk -x 'dialplan reload'
+    ;;
+
+    postrm)
+    ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
