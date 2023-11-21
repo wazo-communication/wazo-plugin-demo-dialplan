@@ -8,9 +8,9 @@ min_wazo_version: 21.07
 tags:
   - community
   - demo
-depends:
-  - name: foo
-    namespace: foocorp
+#depends:
+#  - name: foo
+#    namespace: foocorp
 debian_depends:
   - vim
 homepage: https://github.com/sboily/wazo-plugin-demo
