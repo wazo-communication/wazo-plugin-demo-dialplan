@@ -7,16 +7,17 @@ case "$1" in
     ;;
 
     package)
-        mkdir -p ${pkgdir}/etc/asterisk/extensions_extra.d
-        cp helloworld.conf ${pkgdir}/etc/asterisk/extensions_extra.d/
+        cp -R wazo_onboarding ${pkgdir}/usr/src/wazo_onboarding
+        cp setup.py ${pkgdir}/usr/src/
+
     ;;
 
     install)
-        asterisk -x 'dialplan reload'
+        cd /usr/src
+        python3 setup.py install
     ;;
 
     uninstall)
-        asterisk -x 'dialplan reload'
     ;;
 
     postrm)
